@@ -1,0 +1,14 @@
+---
+# disable_cloud-init_services/tasks/main.yml
+
+- name: 'Disable and stop all cloud-init services'
+  service:
+    name: "{{ item }}"
+    state: 'stopped'
+    enabled: 'false'
+  with_items: "{{ cloud_init_services }}"
+
+- name: 'Generate /etc/cloud/cloud-init.disabled'
+  file:
+    path: '/etc/cloud/cloud-init.disabled'
+    state: 'touch'
