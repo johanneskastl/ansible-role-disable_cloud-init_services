@@ -1,0 +1,27 @@
+galaxy_info:
+  role_name: 'disable_cloud-init_services'
+  author: 'Johannes Kastl'
+  description: 'Disable cloud-init services that are only needed for the initial configuration and might harm later on'
+  company: 'B1 Systems GmbH'
+
+  license: 'BSD-3-Clause'
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: SUSE
+    versions:
+    - all
+  - name: openSUSE Leap
+    versions:
+    - all
+  - name: 'Red Hat'
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies: []
