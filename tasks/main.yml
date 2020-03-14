@@ -9,6 +9,6 @@
   with_items: "{{ cloud_init_services }}"
 
 - name: 'Generate /etc/cloud/cloud-init.disabled'
-  file:
-    path: '/etc/cloud/cloud-init.disabled'
-    state: 'touch'
+  copy:
+    dest: '/etc/cloud/cloud-init.disabled'
+    content: 'disabled by ansible'
