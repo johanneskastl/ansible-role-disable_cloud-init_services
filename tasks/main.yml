@@ -1,13 +1,25 @@
 ---
 # disable_cloud-init_services/tasks/main.yml
+- name: 'Populate service facts'
+  service_facts:
 
 - name: 'Disable and stop all cloud-init services'
   service:
-    name: "{{ item }}"
+    name: "{{ service }}"
     state: 'stopped'
     enabled: 'false'
-  with_items: "{{ cloud_init_services }}"
-  when: 'not (ansible_distribution == "Ubuntu" and ansible_distribution_version == "14.04")'
+  loop: "{{ cloud_init_services }}"
+  loop_control:
+    loop_var: service
+  when:
+    - not (ansible_distribution == "Ubuntu" and ansible_distribution_version == "14.04")
+    - ansible_facts.services[service] is defined
+    - ansible_facts.services[service].status == 'enabled'
+
+- name: 'check if /etc/cloud/ exists'
+  stat:
+    path: /etc/cloud/
+  register: etc_cloud_folder
 
 - name: 'Generate /etc/cloud/cloud-init.disabled'
   copy:
@@ -16,3 +28,4 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
+  when: etc_cloud_folder.stat.exists
