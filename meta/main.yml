@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'disable_cloud-init_services'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Disable cloud-init services that are only needed for the initial configuration and might harm later on'
   company: 'B1 Systems GmbH'
