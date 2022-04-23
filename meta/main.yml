@@ -10,18 +10,18 @@ galaxy_info:
   min_ansible_version: 2.5
 
   platforms:
-  - name: SUSE
-    versions:
-    - all
-  - name: openSUSE Leap
-    versions:
-    - all
-  - name: 'Red Hat'
-    versions:
-    - all
-  - name: Debian
-    versions:
-    - all
+    - name: SUSE
+      versions:
+        - all
+    - name: openSUSE Leap
+      versions:
+        - all
+    - name: 'Red Hat'
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
 
   galaxy_tags: []
 
