@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-disable_cloud-init_services/workflows/Ansible%20Lint/badge.svg)
+
 disable_cloud-init_services
 =========
 
