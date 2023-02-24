@@ -25,7 +25,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: johanneskastl.disable_cloud-init_services }
+         - role: johanneskastl.disable_cloud-init_services
 
 License
 -------
