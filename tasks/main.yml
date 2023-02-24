@@ -17,7 +17,7 @@
     - 'ansible_facts.services[service] is defined'
     - 'ansible_facts.services[service].status == "enabled"'
 
-- name: 'check if /etc/cloud/ exists'
+- name: 'Check if /etc/cloud/ exists'
   ansible.builtin.stat:
     path: '/etc/cloud/'
   register: etc_cloud_folder
