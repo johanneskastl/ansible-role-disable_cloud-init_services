@@ -13,13 +13,13 @@
   loop_control:
     loop_var: service
   when:
-    - not (ansible_distribution == "Ubuntu" and ansible_distribution_version == "14.04")
-    - ansible_facts.services[service] is defined
-    - ansible_facts.services[service].status == 'enabled'
+    - 'not (ansible_distribution == "Ubuntu" and ansible_distribution_version == "14.04")'
+    - 'ansible_facts.services[service] is defined'
+    - 'ansible_facts.services[service].status == "enabled"'
 
 - name: 'check if /etc/cloud/ exists'
   ansible.builtin.stat:
-    path: /etc/cloud/
+    path: '/etc/cloud/'
   register: etc_cloud_folder
 
 - name: 'Generate /etc/cloud/cloud-init.disabled'
