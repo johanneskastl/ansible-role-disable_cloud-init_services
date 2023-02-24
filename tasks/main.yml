@@ -1,10 +1,11 @@
 ---
 # disable_cloud-init_services/tasks/main.yml
+
 - name: 'Populate service facts'
-  service_facts:
+  ansible.builtin.service_facts:
 
 - name: 'Disable and stop all cloud-init services'
-  service:
+  ansible.builtin.service:
     name: "{{ service }}"
     state: 'stopped'
     enabled: 'false'
@@ -17,12 +18,12 @@
     - ansible_facts.services[service].status == 'enabled'
 
 - name: 'check if /etc/cloud/ exists'
-  stat:
+  ansible.builtin.stat:
     path: /etc/cloud/
   register: etc_cloud_folder
 
 - name: 'Generate /etc/cloud/cloud-init.disabled'
-  copy:
+  ansible.builtin.copy:
     dest: '/etc/cloud/cloud-init.disabled'
     content: 'disabled by ansible\n'
     owner: 'root'
